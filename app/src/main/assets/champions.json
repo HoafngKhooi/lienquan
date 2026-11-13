@@ -1,0 +1,22 @@
+{
+  "patch": "1.56",
+  "champions": [
+    { "id": "florentino", "name": "Florentino", "role": "solo",    "meta_score": 95, "win_rate": 0.54, "ban_rate": 0.65 },
+    { "id": "hayate",     "name": "Hayate",     "role": "ad",      "meta_score": 93, "win_rate": 0.53, "ban_rate": 0.62 },
+    { "id": "stuart",     "name": "Stuart",     "role": "ad",      "meta_score": 91, "win_rate": 0.52, "ban_rate": 0.58 },
+    { "id": "aya",        "name": "Aya",        "role": "support", "meta_score": 94, "win_rate": 0.55, "ban_rate": 0.60 },
+    { "id": "nakroth",    "name": "Nakroth",    "role": "jungle",  "meta_score": 82, "win_rate": 0.50, "ban_rate": 0.30 },
+    { "id": "elsu",       "name": "Elsu",       "role": "ad",      "meta_score": 85, "win_rate": 0.51, "ban_rate": 0.40 },
+    { "id": "murad",      "name": "Murad",      "role": "jungle",  "meta_score": 80, "win_rate": 0.49, "ban_rate": 0.25 },
+    { "id": "arum",       "name": "Arum",       "role": "support", "meta_score": 78, "win_rate": 0.48, "ban_rate": 0.15 },
+    { "id": "aleister",   "name": "Aleister",   "role": "mid",     "meta_score": 79, "win_rate": 0.49, "ban_rate": 0.18 },
+    { "id": "baldum",     "name": "Baldum",     "role": "support", "meta_score": 76, "win_rate": 0.47, "ban_rate": 0.12 },
+    { "id": "batman",     "name": "Batman",     "role": "jungle",  "meta_score": 74, "win_rate": 0.46, "ban_rate": 0.10 },
+    { "id": "wukong",     "name": "Wukong",     "role": "jungle",  "meta_score": 75, "win_rate": 0.47, "ban_rate": 0.11 }
+  ],
+  "counter_matrix": {
+    "nakroth": { "hard_counters": ["arum", "aleister", "baldum", "minn"] },
+    "murad":   { "hard_counters": ["arum", "aleister", "baldum"] },
+    "elsu":    { "hard_counters": ["batman", "wukong"] }
+  }
+}

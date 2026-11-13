@@ -1,0 +1,5 @@
+-renamesourcefileattribute SourceFile
+-repackageclasses ''
+-allowaccessmodification
+-keep class com.penguin.lqban.data.** { *; }
+-keepclassmembers class com.penguin.lqban.data.** { <fields>; }
