@@ -4,6 +4,7 @@
     <string name="status_ready">Sẵn sàng</string>
     <string name="btn_grant_overlay">Cấp quyền Overlay</string>
     <string name="btn_grant_capture">Cấp quyền chụp màn hình</string>
-    <string name="btn_start">Bắt đầu</string>
+    <string name="btn_start">Bắt đầu (Chạy ngầm)</string>
     <string name="btn_stop">Dừng</string>
+    <string name="btn_test_mock">🧪 TEST GIẢ LẬP (Không cần Game)</string>
 </resources>

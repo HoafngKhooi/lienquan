@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:background="#0F1116">
+    android:background="#0F1116"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/status_ready"
-        android:textColor="#A0A0A0" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF" />
 
-    <Button android:id="@+id/btnGrantOverlay"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="32dp" android:text="@string/btn_grant_overlay" />
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/status_ready"
+            android:textColor="#A0A0A0"
+            android:fontFamily="monospace" />
 
-    <Button android:id="@+id/btnGrantCapture"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" android:text="@string/btn_grant_capture" />
+        <Button android:id="@+id/btnGrantOverlay"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:text="@string/btn_grant_overlay" />
 
-    <Button android:id="@+id/btnStart"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" android:text="@string/btn_start" />
+        <Button android:id="@+id/btnGrantCapture"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="@string/btn_grant_capture" />
 
-    <Button android:id="@+id/btnStop"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" android:text="@string/btn_stop" />
+        <Button android:id="@+id/btnStart"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="@string/btn_start" />
 
-</LinearLayout>
+        <Button android:id="@+id/btnStop"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="@string/btn_stop" />
+
+        <Button android:id="@+id/btnTestMock"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" 
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:text="@string/btn_test_mock" />
+
+    </LinearLayout>
+</ScrollView>

@@ -13,28 +13,24 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.penguin.lqban.service.CaptureService
+import com.penguin.lqban.vision.VisionTest
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var tvStatus: TextView
     private lateinit var mediaProjectionManager: MediaProjectionManager
 
-    // Nhận kết quả từ hộp thoại xin quyền chụp màn hình
     private val requestCapture = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK && result.data != null) {
             val data = result.data!!
-            tvStatus.text = "Đã cấp quyền chụp"
-            Toast.makeText(this, "Sẵn sàng bắt đầu!", Toast.LENGTH_SHORT).show()
-            
-            // Lưu tạm data vào biến toàn cục hoặc truyền thẳng qua Service (ở đây truyền thẳng)
-            val intent = Intent(this, com.penguin.lqban.service.CaptureService::class.java).apply {
+            tvStatus.text = "Đã cấp quyền, sẵn sàng chạy ngầm"
+            val intent = Intent(this, CaptureService::class.java).apply {
                 action = "START_CAPTURE"
                 putExtra("resultCode", result.resultCode)
                 putExtra("data", data)
             }
             ContextCompat.startForegroundService(this, intent)
-        } else {
-            Toast.makeText(this, "Từ chối cấp quyền!", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -49,23 +45,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnGrantCapture).setOnClickListener {
-            val intent = mediaProjectionManager.createScreenCaptureIntent()
-            requestCapture.launch(intent)
+            requestCapture.launch(mediaProjectionManager.createScreenCaptureIntent())
         }
 
         findViewById<Button>(R.id.btnStart).setOnClickListener {
-            // Nếu đã cấp quyền, khởi động lại service
-            val intent = Intent(this, com.penguin.lqban.service.CaptureService::class.java).apply {
-                action = "START_RECORDING"
-            }
+            val intent = Intent(this, CaptureService::class.java).apply { action = "START_RECORDING" }
             ContextCompat.startForegroundService(this, intent)
+            Toast.makeText(this, "Đang chạy ngầm...", Toast.LENGTH_SHORT).show()
         }
 
         findViewById<Button>(R.id.btnStop).setOnClickListener {
-            val intent = Intent(this, com.penguin.lqban.service.CaptureService::class.java).apply {
-                action = "STOP_RECORDING"
-            }
+            val intent = Intent(this, CaptureService::class.java).apply { action = "STOP_RECORDING" }
             startService(intent)
+            Toast.makeText(this, "Đã dừng", Toast.LENGTH_SHORT).show()
+        }
+
+        // Nút Test Giả Lập
+        findViewById<Button>(R.id.btnTestMock).setOnClickListener {
+            tvStatus.text = "Đang chạy Test Giả Lập..."
+            val resultText = VisionTest.runMockTest(this)
+            tvStatus.text = resultText
+            Toast.makeText(this, "Test xong! Xem kết quả trên màn hình.", Toast.LENGTH_LONG).show()
         }
     }
 }
